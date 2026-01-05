@@ -429,10 +429,55 @@ export default function VideoMeetComponent() {
     };
 
 
-    let handleAudio = () => {
-        setAudio(!audio)
-        getUserMedia();
-    }
+    let handleAudio = async () => {
+        const audioTracks = window.localStream?.getAudioTracks();
+
+        // 🎤 Case 1: Audio track exists and is alive → toggle
+        if (audioTracks && audioTracks.length > 0) {
+            const track = audioTracks[0];
+
+            if (track.readyState === "live") {
+                track.enabled = !track.enabled;
+                setAudio(track.enabled);
+                return;
+            }
+        }
+
+        // 🎤 Case 2: Track was stopped → re-acquire microphone
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({
+                audio: true,
+                video: video,
+            });
+
+            const newAudioTrack = stream.getAudioTracks()[0];
+            const videoTrack = window.localStream?.getVideoTracks()[0];
+
+            const newStream = new MediaStream([
+                ...(videoTrack ? [videoTrack] : []),
+                newAudioTrack,
+            ]);
+
+            window.localStream = newStream;
+            localVideoref.current.srcObject = newStream;
+
+            // 🔁 Replace audio track for all peers
+            for (let id in connections) {
+                const sender = connections[id]
+                    .getSenders()
+                    .find(s => s.track && s.track.kind === "audio");
+
+                if (sender) {
+                    sender.replaceTrack(newAudioTrack);
+                }
+            }
+
+            setAudio(true);
+        } catch (err) {
+            console.error("Failed to re-enable microphone:", err);
+        }
+    };
+
 
     useEffect(() => {
         if (screen !== undefined) {
