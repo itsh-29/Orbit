@@ -64,7 +64,7 @@ export default function VideoMeetComponent() {
         console.log("HELLO")
         getPermissions();
 
-    })
+    },[])
 
     let getDislayMedia = () => {
         if (screen) {
@@ -270,7 +270,8 @@ export default function VideoMeetComponent() {
 
 
     let connectToSocketServer = () => {
-        socketRef.current = io.connect(server_url, { secure: false })
+        if (socketRef.current) return;
+        socketRef.current = io.connect(server_url, {  transports: ["websocket"],secure: false })
 
         socketRef.current.on('signal', gotMessageFromServer)
 
