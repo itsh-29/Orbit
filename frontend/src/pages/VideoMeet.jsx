@@ -12,6 +12,8 @@ import ScreenShareIcon from '@mui/icons-material/ScreenShare';
 import StopScreenShareIcon from '@mui/icons-material/StopScreenShare'
 import ChatIcon from '@mui/icons-material/Chat'
 import server from '../environment';
+import { useNavigate } from "react-router-dom";
+
 
 
 const server_url = server;
@@ -58,6 +60,9 @@ export default function VideoMeetComponent() {
     const videoRef = useRef([])
 
     let [videos, setVideos] = useState([])
+
+    const navigate = useNavigate();
+
 
 
     useEffect(() => {
@@ -489,12 +494,30 @@ export default function VideoMeetComponent() {
     }
 
     let handleEndCall = () => {
+        // Stop local media
         try {
-            let tracks = localVideoref.current.srcObject.getTracks()
-            tracks.forEach(track => track.stop())
-        } catch (e) { }
-        window.location.href = "/"
-    }
+            let tracks = localVideoref.current?.srcObject?.getTracks();
+            tracks?.forEach(track => track.stop());
+        } catch (e) {}
+
+        // Disconnect socket cleanly
+        if (socketRef.current) {
+            socketRef.current.disconnect();
+            socketRef.current = null;
+        }
+
+        // 🔑 Check login state via token
+        const token = localStorage.getItem("token");
+
+        if (token) {
+            // Logged-in user → Home
+            navigate("/home");
+        } else {
+            // Guest user → Landing page
+            navigate("/");
+        }
+    };
+
 
     let openChat = () => {
         setModal(true);
