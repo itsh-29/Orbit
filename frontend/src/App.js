@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import LandingPage from './pages/landing';
 import Authenticaton from './pages/authentication';
 import { AuthProvider } from './contexts/AuthContext';
@@ -10,21 +9,15 @@ import History from './pages/history';
 
 function App() {
   return (
-    <>
-    <Router>
-      <AuthProvider>
+    <AuthProvider>
       <Routes>
-        {/* <Route path='/home' element=/> */}
-        <Route path='/' element={<LandingPage/>}/>
-        <Route path='/auth' element={<Authenticaton/>}/>
-        <Route path ='/home' element={<HomeComponent/>}/>
-        <Route path ='/history' element={<History/>}/>
-        <Route path='/:url' element={<VideoMeetComponent/>}/>
+        <Route path='/' element={<LandingPage />} />
+        <Route path='/auth' element={<Authenticaton />} />
+        <Route path='/home' element={<HomeComponent />} />
+        <Route path='/history' element={<History />} />
+        <Route path='/:url' element={<VideoMeetComponent />} />
       </Routes>
-       </AuthProvider>
-    </Router>   
-    
-    </>
+    </AuthProvider>
   );
 }
 
