@@ -380,9 +380,16 @@ export default function VideoMeetComponent() {
     }
 
     let handleVideo = () => {
-        setVideo(!video);
-        getUserMedia();
-    }
+        const videoTrack = window.localStream
+            ?.getVideoTracks()
+            ?.[0];
+
+        if (!videoTrack) return;
+
+        videoTrack.enabled = !videoTrack.enabled;
+        setVideo(videoTrack.enabled);
+    };
+
     let handleAudio = () => {
         setAudio(!audio)
         getUserMedia();
