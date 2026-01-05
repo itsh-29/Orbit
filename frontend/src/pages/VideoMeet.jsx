@@ -379,16 +379,55 @@ export default function VideoMeetComponent() {
         return Object.assign(stream.getVideoTracks()[0])
     }
 
-    let handleVideo = () => {
-        const videoTrack = window.localStream
-            ?.getVideoTracks()
-            ?.[0];
+    let handleVideo = async () => {
+        const videoTracks = window.localStream?.getVideoTracks();
 
-        if (!videoTrack) return;
+        // 🎥 Case 1: Track exists and is alive → toggle
+        if (videoTracks && videoTracks.length > 0) {
+            const track = videoTracks[0];
 
-        videoTrack.enabled = !videoTrack.enabled;
-        setVideo(videoTrack.enabled);
+            if (track.readyState === "live") {
+                track.enabled = !track.enabled;
+                setVideo(track.enabled);
+                return;
+            }
+        }
+
+        // 🎥 Case 2: Track was stopped → re-acquire camera
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({
+                video: true,
+                audio: audio,
+            });
+
+            const newVideoTrack = stream.getVideoTracks()[0];
+            const audioTrack = window.localStream?.getAudioTracks()[0];
+
+            const newStream = new MediaStream([
+                newVideoTrack,
+                ...(audioTrack ? [audioTrack] : []),
+            ]);
+
+            window.localStream = newStream;
+            localVideoref.current.srcObject = newStream;
+
+            // 🔁 Replace track for every peer
+            for (let id in connections) {
+                const sender = connections[id]
+                    .getSenders()
+                    .find(s => s.track && s.track.kind === "video");
+
+                if (sender) {
+                    sender.replaceTrack(newVideoTrack);
+                }
+            }
+
+            setVideo(true);
+        } catch (err) {
+            console.error("Failed to re-enable camera:", err);
+        }
     };
+
 
     let handleAudio = () => {
         setAudio(!audio)
