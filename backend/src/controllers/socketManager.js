@@ -11,7 +11,8 @@ export const connectToSocket =(server)=>{
             methods:["GET","POST"],
             allowedHeaders:["*"],
             credentials:true 
-        }
+        },
+        transports: ["websocket"]
     });
     io.on("connection",(socket)=>{
         console.log("Something is connected")
