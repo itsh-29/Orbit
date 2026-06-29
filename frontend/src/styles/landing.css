@@ -1,0 +1,395 @@
+.orbitLanding {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #f5f5f5;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+
+.orbitNavbar {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 24px 40px;
+}
+
+.orbitLogo {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #c08b5c;
+}
+
+.orbitNavLinks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.orbitNavLinks p {
+  color: #9a9a9a;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.orbitNavLinks p:hover {
+  color: white;
+}
+
+.orbitLoginBtn {
+  background: linear-gradient(
+    135deg,
+    #c08b5c,
+    #d6a77a
+  );
+
+  color: black;
+  font-weight: 700;
+
+  padding: 12px 22px;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.orbitLoginBtn:hover {
+  transform: translateY(-2px);
+}
+
+/* HERO */
+
+.heroSection {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  min-height: 85vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 80px;
+
+  padding: 20px 40px 80px;
+}
+
+.heroLeft {
+  flex: 1;
+  max-width: 600px;
+}
+
+.orbitBadge {
+  display: inline-block;
+
+  padding: 10px 18px;
+
+  border-radius: 999px;
+
+  background: rgba(192, 139, 92, 0.12);
+
+  border: 1px solid rgba(192, 139, 92, 0.25);
+
+  color: #c08b5c;
+
+  margin-bottom: 24px;
+}
+
+.heroLeft h1 {
+  font-size: 4.5rem;
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+
+.heroLeft p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #9a9a9a;
+  margin-bottom: 32px;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.primaryBtn {
+  text-decoration: none;
+
+  background: linear-gradient(
+    135deg,
+    #c08b5c,
+    #d6a77a
+  );
+
+  color: black;
+
+  font-weight: 700;
+
+  padding: 14px 26px;
+
+  border-radius: 16px;
+
+  transition: 0.3s;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+}
+
+.secondaryBtn {
+  text-decoration: none;
+
+  background: #161616;
+
+  border: 1px solid #262626;
+
+  color: white;
+
+  padding: 14px 26px;
+
+  border-radius: 16px;
+
+  transition: 0.3s;
+}
+
+.secondaryBtn:hover {
+  border-color: rgba(192, 139, 92, 0.4);
+}
+
+.heroStats {
+  color: #9a9a9a;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* MOCKUP */
+
+.heroRight {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+}
+
+.heroRight::before {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  background: radial-gradient(
+    circle,
+    rgba(192, 139, 92, 0.22),
+    transparent 70%
+  );
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.meetingMockup {
+  width: 430px;
+
+  position: relative;
+  z-index: 2;
+
+  background: #161616;
+
+  border: 1px solid #262626;
+
+  border-radius: 28px;
+
+  padding: 24px;
+
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+}
+
+.mockupHeader {
+  font-size: 1.3rem;
+  font-weight: 600;
+
+  margin-bottom: 20px;
+}
+
+.mockupGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.mockUser {
+  background: #1d1d1d;
+
+  border: 1px solid #2b2b2b;
+
+  border-radius: 18px;
+
+  height: 150px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+}
+
+.avatarCircle {
+  width: 65px;
+  height: 65px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #c08b5c,
+    #d6a77a
+  );
+
+  color: black;
+
+  font-size: 1.3rem;
+  font-weight: 700;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mockControls {
+  margin-top: 24px;
+
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+
+  font-size: 1.6rem;
+}
+
+.meetingFooter {
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: #9a9a9a;
+}
+
+/* FEATURES */
+
+.featuresSection {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  padding: 80px 40px;
+}
+
+.featuresTitle {
+  text-align: center;
+
+  font-size: 2.5rem;
+
+  margin-bottom: 50px;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 24px;
+}
+
+.featureCard {
+  background: #161616;
+
+  border: 1px solid #262626;
+
+  border-radius: 24px;
+
+  padding: 28px;
+
+  transition: 0.3s;
+}
+
+.featureCard:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(192, 139, 92, 0.4);
+
+  box-shadow: 0 15px 30px rgba(192, 139, 92, 0.15);
+}
+
+.featureCard h3 {
+  margin-bottom: 14px;
+}
+
+.featureCard p {
+  color: #9a9a9a;
+  line-height: 1.7;
+}
+
+/* FOOTER */
+
+.orbitFooter {
+  border-top: 1px solid #262626;
+
+  color: #6b7280;
+
+  text-align: center;
+
+  padding: 40px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .heroSection {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .heroButtons {
+    justify-content: center;
+  }
+
+  .featureGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .orbitNavbar {
+    padding: 20px;
+  }
+
+  .heroSection {
+    padding: 20px;
+  }
+
+  .heroLeft h1 {
+    font-size: 3rem;
+  }
+
+  .meetingMockup {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+}

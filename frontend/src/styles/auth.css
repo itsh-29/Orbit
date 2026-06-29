@@ -1,0 +1,109 @@
+.authPage {
+min-height: 100vh;
+background: #0a0a0a;
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+}
+
+.authContainer {
+width: 100%;
+max-width: 480px;
+
+background: #111111;
+
+border: 1px solid #262626;
+
+border-radius: 28px;
+
+padding: 40px;
+
+box-shadow:
+0 0 80px rgba(192,139,92,.08);
+}
+
+.authLogo {
+font-size: 2rem;
+font-weight: 700;
+color: #C08B5C;
+text-align: center;
+margin-bottom: 10px;
+}
+
+.authSubtitle {
+text-align: center;
+color: #9A9A9A;
+margin-bottom: 30px;
+}
+
+.authTabs {
+display: flex;
+gap: 10px;
+margin-bottom: 25px;
+}
+
+.authTab {
+flex: 1;
+padding: 12px;
+border-radius: 12px;
+border: 1px solid #262626;
+background: #161616;
+color: white;
+cursor: pointer;
+}
+
+.authTab.active {
+background: rgba(192,139,92,.12);
+border-color: rgba(192,139,92,.3);
+color: #C08B5C;
+}
+
+.authInput {
+width: 100%;
+padding: 14px;
+margin-bottom: 15px;
+
+border-radius: 12px;
+
+border: 1px solid #262626;
+
+background: #0f0f0f;
+
+color: white;
+}
+
+.authInput:focus {
+outline: none;
+border-color: #C08B5C;
+}
+
+.authButton {
+width: 100%;
+
+margin-top: 10px;
+
+padding: 14px;
+
+border: none;
+
+border-radius: 12px;
+
+background: linear-gradient(
+135deg,
+#C08B5C,
+#D6A77A
+);
+
+color: black;
+
+font-weight: 700;
+
+cursor: pointer;
+}
+
+.authError {
+color: #ef4444;
+margin-top: 10px;
+}

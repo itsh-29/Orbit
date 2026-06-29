@@ -1,0 +1,101 @@
+.historyPage {
+min-height: 100vh;
+background: #0a0a0a;
+color: white;
+}
+
+.historyNavbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+padding: 24px 40px;
+
+border-bottom: 1px solid #262626;
+}
+
+.historyLogo {
+font-size: 2rem;
+font-weight: 700;
+color: #C08B5C;
+}
+
+.historyContent {
+max-width: 1000px;
+margin: auto;
+padding: 40px 20px;
+}
+
+.historyTitle {
+font-size: 2rem;
+margin-bottom: 10px;
+}
+
+.historySubtitle {
+color: #9a9a9a;
+margin-bottom: 30px;
+}
+
+.meetingHistoryCard {
+background: #161616;
+
+border: 1px solid #262626;
+
+border-radius: 20px;
+
+padding: 24px;
+
+margin-bottom: 20px;
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+transition: .3s;
+}
+
+.meetingHistoryCard:hover {
+border-color: rgba(192,139,92,.3);
+}
+
+.meetingInfo h3 {
+margin-bottom: 8px;
+}
+
+.meetingInfo p {
+color: #9a9a9a;
+}
+
+.rejoinBtn {
+background: linear-gradient(
+135deg,
+#C08B5C,
+#D6A77A
+);
+
+border: none;
+
+color: black;
+
+padding: 12px 20px;
+
+border-radius: 12px;
+
+font-weight: 700;
+
+cursor: pointer;
+}
+
+.backBtn {
+background: #161616;
+
+border: 1px solid #262626;
+
+color: white;
+
+padding: 12px 18px;
+
+border-radius: 12px;
+
+cursor: pointer;
+}

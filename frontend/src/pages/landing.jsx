@@ -1,50 +1,155 @@
-import React from 'react'
-import "../App.css"
-import { Link, useNavigate } from 'react-router-dom'
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "../styles/landing.css";
+
 export default function LandingPage() {
+const navigate = useNavigate();
 
-    const router = useNavigate();
-  return (
-    <div className='landingPageContainer'>
+return ( <div className="orbitLanding"> <nav className="orbitNavbar"> <div className="orbitLogo">◎ Orbit</div>
 
-        <nav>
-            <div className='navHeader'>
-                <h2>Apna Video Call</h2>
-            </div>
-            <div className='navlist'>
-                <p onClick={()=>{
-                    router("/guestc")
-                }}>Join as Guest</p>
-                <p onClick={()=>{
-                    router("/auth")
-                }}>Register</p>
-                <div  onClick={()=>{
-                    router("/auth")
-                }}role='button'><p>Login</p></div>
-            </div>
-        </nav>
+    <div className="orbitNavLinks">
+      <p onClick={() => navigate("/auth")}>Sign In</p>
 
+      <div
+        className="orbitLoginBtn"
+        onClick={() => navigate("/auth")}
+      >
+        Get Started
+      </div>
+    </div>
+  </nav>
 
-        <div className="landingMainContainer">
-            <div>
-                <h1><span style={{color:'#FF9839'}}>Connect</span> with your loved One</h1>
-            
-                <p>Cover a distance by apna video call</p>
-                <div role='button'>
-                    <Link to="/auth">Get Started </Link>
-                </div>
-            </div>
+  <section className="heroSection">
+    <div className="heroLeft">
 
-            <div>
-                <img src='/mobile.png' alt="mobile picture image"/>
+      <div className="orbitBadge">
+        🚀 AI-Powered Collaboration Platform
+      </div>
 
-            </div>
+        <h1>
+        Modern Collaboration
+        <br />
+        for Modern Teams.
+        </h1>
 
+      <p>
+        Orbit is a modern collaboration platform for teams,
+        creators and students. Host HD meetings, share your
+        screen, chat in real-time and collaborate effortlessly.
+      </p>
+
+      <div className="heroButtons">
+        <Link className="primaryBtn" to="/auth">
+          Start Meeting
+        </Link>
+
+        <Link className="secondaryBtn" to="/auth">
+          Sign In
+        </Link>
+      </div>
+
+      <div className="heroStats">
+        <span>✓ HD Meetings</span>
+        <span>✓ Screen Sharing</span>
+        <span>✓ Real-Time Chat</span>
+        <span>✓ Meeting History</span>
+      </div>
+
+    </div>
+
+    <div className="heroRight">
+
+      <div className="meetingMockup">
+
+        <div className="mockupHeader">
+          Orbit Meeting
+        </div>
+
+        <div className="mockupGrid">
+
+          <div className="mockUser">
+            <div className="avatarCircle">IM</div>
+            <span>Ishan</span>
+          </div>
+
+          <div className="mockUser">
+            <div className="avatarCircle">SJ</div>
+            <span>Sarah</span>
+          </div>
+
+          <div className="mockUser">
+            <div className="avatarCircle">AR</div>
+            <span>Alex</span>
+          </div>
+
+          <div className="mockUser">
+            <div className="avatarCircle">MK</div>
+            <span>Mike</span>
+          </div>
 
         </div>
 
+        <div className="mockControls">
+          <span>🎤</span>
+          <span>📹</span>
+          <span>🖥</span>
+          <span>💬</span>
+          <span>❌</span>
+        </div>
 
+        <div className="meetingFooter">
+          <span>Participants: 4</span>
+          <span>Live</span>
+        </div>
+
+      </div>
 
     </div>
-  )
+  </section>
+
+  <section className="featuresSection">
+    <h2 className="featuresTitle">
+      Everything you need to collaborate
+    </h2>
+
+    <div className="featureGrid">
+
+      <div className="featureCard">
+        <h3>🎥 HD Meetings</h3>
+        <p>
+          Crystal-clear video communication powered by WebRTC.
+        </p>
+      </div>
+
+      <div className="featureCard">
+        <h3>💬 Real-Time Chat</h3>
+        <p>
+          Collaborate instantly without leaving the meeting.
+        </p>
+      </div>
+
+      <div className="featureCard">
+        <h3>🖥 Screen Sharing</h3>
+        <p>
+          Present ideas, demos and walkthroughs effortlessly.
+        </p>
+      </div>
+
+      <div className="featureCard">
+        <h3>📜 Meeting History</h3>
+        <p>
+          Access and track your previous sessions easily.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer className="orbitFooter">
+    Built with React • WebRTC • Socket.io • MongoDB
+  </footer>
+</div>
+
+
+);
 }

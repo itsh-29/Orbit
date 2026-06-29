@@ -1,69 +1,192 @@
-import React, { useContext, useState } from 'react'
-import withAuth from '../utils/withAuth'
-import { useNavigate } from 'react-router-dom'
-import "../App.css"
-import IconButton from '@mui/material/IconButton';
-import RestoreIcon from"@mui/icons-material/Restore";
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import { AuthContext } from '../contexts/AuthContext';
-
-
-
-
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Video, History, LogOut } from "lucide-react";
+import withAuth from "../utils/withAuth";
+import { AuthContext } from "../contexts/AuthContext";
+import "../styles/dashboard.css";
 
 function HomeComponent() {
-    let navigate = useNavigate();
-    const [meetingCode,setMeetingCode]= useState("");
-    const {addToUserHistory} =  useContext(AuthContext); 
+const navigate = useNavigate();
 
-    let handleJoinVideoCall = async() =>{
-        await addToUserHistory (meetingCode);
-        navigate (`/${meetingCode}`);
-    }
-    
-    
-    return (
-        <>
-        <div className="navBar">
-            <div style={{display:"flex",alignItems:"centre"}}>
-                <h2>Apna Video Call</h2>
-            </div>
-            <div style={{display:"flex",alignItems:'center'}}>
-                <IconButton onClick={()=>{
-                    navigate("/history")
-                }}>
-                    <RestoreIcon/>
-                </IconButton>
-                  <p style={{paddingRight:"10px"}}>History</p>
-                <Button  onClick={()=>{
-                    localStorage.removeItem("token")
-                    navigate("/auth");
-                }} variant='contained'>
-                    Logout
-                </Button>
-            </div>
-        </div>
+const [meetingCode, setMeetingCode] = useState("");
 
-                <div className="meetContainer">
-                    <div className='leftpanel'>
-                        <div>
-                            <h2>Providing Quality Video call just like quality education</h2>
-                            <div style={{display:'flex',gap:"10px"}}>
+const { addToUserHistory } = useContext(AuthContext);
 
-                                <TextField onChange={e=>setMeetingCode(e.target.value)} id="outline-basic" label="Meeting Code" variant='outlined'/>
-                                <Button onClick={handleJoinVideoCall} variant='contained'>Join</Button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='rightpanel'>
-                        <img srcSet='/logo3.png' alt=" " />
-                    </div>
+const createNewMeeting = () => {
+const roomId = Math.random()
+.toString(36)
+.substring(2, 8);
 
 
-                </div>
-        </>
-  )
+navigate(`/${roomId}`);
+
+
+};
+
+const handleJoinVideoCall = async () => {
+if (!meetingCode.trim()) return;
+
+
+await addToUserHistory(meetingCode);
+
+navigate(`/${meetingCode}`);
+
+
+};
+
+const logout = () => {
+localStorage.removeItem("token");
+navigate("/auth");
+};
+
+return ( <div className="dashboardPage">
+
+
+  {/* Navbar */}
+
+  <nav className="navbar">
+
+    <div className="logo">
+      ◎ Orbit
+    </div>
+
+    <div className="navActions">
+
+      <button
+        className="navBtn logoutBtn"
+        onClick={logout}
+      >
+        <LogOut size={18} />
+        Logout
+      </button>
+
+    </div>
+
+  </nav>
+
+  <div className="dashboardContent">
+
+    {/* Hero */}
+
+    <section className="workspaceHero">
+
+      <h1>
+        Your Collaboration Hub
+      </h1>
+
+      <p>
+        Create meetings, collaborate with teammates,
+        and manage conversations from one place.
+      </p>
+
+      <div className="heroBadgeContainer">
+
+        <span className="heroBadge">
+          Secure Meetings
+        </span>
+
+        <span className="heroBadge">
+          Real-Time Chat
+        </span>
+
+        <span className="heroBadge">
+          Screen Sharing
+        </span>
+
+      </div>
+
+    </section>
+
+    {/* Action Cards */}
+
+    <div className="actionGrid">
+
+      <div
+        className="actionCard"
+        onClick={createNewMeeting}
+      >
+
+        <Video size={30} />
+
+        <h3>
+          New Meeting
+        </h3>
+
+        <p>
+          Start a meeting instantly and invite participants.
+        </p>
+
+      </div>
+
+      <div
+        className="actionCard"
+        onClick={() => navigate("/history")}
+      >
+
+        <History size={30} />
+
+        <h3>
+          Meeting History
+        </h3>
+
+        <p>
+          Access all previous meetings and room activity.
+        </p>
+
+      </div>
+
+    </div>
+
+    {/* Join Meeting */}
+
+    <div className="joinCard">
+
+      <h2>
+        Join Existing Meeting
+      </h2>
+
+      <p className="sectionSubtitle">
+        Paste a meeting code to connect instantly.
+      </p>
+
+      <input
+        className="joinInput"
+        placeholder="Enter Meeting ID"
+        value={meetingCode}
+        onChange={(e) =>
+          setMeetingCode(e.target.value)
+        }
+      />
+
+      <button
+        className="orbitBtn"
+        onClick={handleJoinVideoCall}
+      >
+        Join Room
+      </button>
+
+    </div>
+
+    {/* Recent Meetings */}
+
+    <div className="recentSection">
+
+      <h2>
+        Recent Meetings
+      </h2>
+
+      <p className="sectionSubtitle">
+        Meeting history and activity will appear here.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+);
 }
 
-export default withAuth(HomeComponent)
+export default withAuth(HomeComponent);
