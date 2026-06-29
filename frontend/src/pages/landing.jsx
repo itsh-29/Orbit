@@ -5,11 +5,18 @@ import "../styles/landing.css";
 export default function LandingPage() {
 const navigate = useNavigate();
 
+
+const startInstantMeeting = () => {
+  const roomId = Math.random()
+    .toString(36)
+    .substring(2, 8);
+
+  navigate(`/${roomId}`);
+};
+
 return ( <div className="orbitLanding"> <nav className="orbitNavbar"> <div className="orbitLogo">◎ Orbit</div>
 
     <div className="orbitNavLinks">
-      <p onClick={() => navigate("/auth")}>Sign In</p>
-
       <div
         className="orbitLoginBtn"
         onClick={() => navigate("/auth")}
@@ -39,10 +46,10 @@ return ( <div className="orbitLanding"> <nav className="orbitNavbar"> <div class
       </p>
 
       <div className="heroButtons">
-        <Link className="primaryBtn" to="/auth">
+        <Link className="primaryBtn" to={`/${Math.random().toString(36).substring(2, 8)}`}>
           Start Meeting
         </Link>
-
+       
         <Link className="secondaryBtn" to="/auth">
           Sign In
         </Link>

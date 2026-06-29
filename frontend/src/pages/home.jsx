@@ -13,12 +13,10 @@ const [meetingCode, setMeetingCode] = useState("");
 const { addToUserHistory } = useContext(AuthContext);
 
 const createNewMeeting = () => {
-const roomId = Math.random()
-.toString(36)
-.substring(2, 8);
-
-
-navigate(`/${roomId}`);
+  const roomId = Math.random()
+  .toString(36)
+  .substring(2, 8);
+  navigate(`/${roomId}`);
 
 
 };
