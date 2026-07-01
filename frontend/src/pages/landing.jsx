@@ -46,7 +46,7 @@ return ( <div className="orbitLanding"> <nav className="orbitNavbar"> <div class
       </p>
 
       <div className="heroButtons">
-        <Link className="primaryBtn" to={`/${Math.random().toString(36).substring(2, 8)}`}>
+        <Link className="primaryBtn" to={`/lobby/${Math.random().toString(36).substring(2, 8)}`}>
           Start Meeting
         </Link>
   
