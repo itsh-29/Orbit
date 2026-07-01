@@ -1,4 +1,4 @@
-    # ◎ Orbit
+#Orbit — Real-Time Video Collaboration Platform
 
 A modern real-time collaboration platform built for seamless video meetings, communication, and team productivity.
 
