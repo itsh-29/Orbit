@@ -14,16 +14,36 @@ const [message, setMessage] = React.useState("");
 const [formState, setFormState] = React.useState(0);
 
 const [open, setOpen] = React.useState(false);
+const [loading, setLoading] = React.useState(false);
 
 const { handleRegister, handleLogin } =
 React.useContext(AuthContext);
 
 const handleAuth = async () => {
-try {
-
 
   setError("");
 
+  if(!username?.trim()){
+    setError("Username is required");
+    return;
+  }
+  if(!password?.trim()){
+    setError("Password is required");
+    return;
+  }
+  if(password.length < 6){
+    setError("Password must be at least 6 characters");
+    return;
+  }
+  if(formState === 1 && !name?.trim()){
+    setError("Full name is required");
+    return;
+  }
+
+  try{
+  
+  setLoading(true);
+  
   if (formState === 0) {
 
     await handleLogin(
@@ -41,7 +61,6 @@ try {
       );
 
     setMessage(result);
-
     setOpen(true);
 
     setFormState(0);
@@ -53,13 +72,12 @@ try {
 
 } catch (err) {
 
-  console.log(err);
-
-  const message =
-    err?.response?.data?.message ||
-    "Something went wrong";
-
-  setError(message);
+  setError(
+    err?.response?.data?.message|| 
+    "Something went wrong"
+  );
+}finally{
+  setLoading(false);
 }
 
 
@@ -143,8 +161,10 @@ return ( <div className="authPage">
     <button
       className="authButton"
       onClick={handleAuth}
+      disabled={loading}
     >
-      {formState === 0
+      {loading ? "Please wait...":
+      formState === 0
         ? "Continue"
         : "Create Account"}
     </button>

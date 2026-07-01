@@ -1,0 +1,181 @@
+.lobbyPage{
+  min-height:100vh;
+  background:#0A0A0A;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:20px;
+}
+
+.lobbyCard{
+  width:100%;
+  max-width:520px;
+
+  background:#161616;
+  border:1px solid #262626;
+
+  border-radius:24px;
+
+  padding:40px;
+
+  text-align:center;
+
+  box-shadow:
+  0 25px 60px rgba(0,0,0,.45);
+}
+
+.lobbyLogo{
+  font-size:2rem;
+  font-weight:700;
+  color:#C08B5C;
+
+  margin-bottom:10px;
+}
+
+.lobbyCard h1{
+  color:white;
+  margin-bottom:10px;
+}
+
+.lobbySubtitle{
+  color:#9A9A9A;
+  margin-bottom:25px;
+}
+
+.cameraPreview{
+  width:220px;
+  height:220px;
+
+  margin:auto;
+
+  border-radius:50%;
+
+  background:#1F1F1F;
+
+  border:2px solid #2C2C2C;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  margin-bottom:25px;
+}
+
+.previewAvatar{
+  width:90px;
+  height:90px;
+
+  border-radius:50%;
+
+  background:linear-gradient(
+    135deg,
+    #C08B5C,
+    #D6A77A
+  );
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  color:black;
+  font-size:2rem;
+  font-weight:700;
+}
+
+.meetingInfo{
+  background:#1A1A1A;
+
+  border:1px solid #2A2A2A;
+
+  padding:14px;
+
+  border-radius:14px;
+
+  margin-bottom:20px;
+
+  color:white;
+
+  display:flex;
+  justify-content:space-between;
+}
+
+.lobbyInput{
+  width:100%;
+
+  padding:14px;
+
+  border:none;
+  outline:none;
+
+  border-radius:12px;
+
+  background:#1A1A1A;
+
+  color:white;
+
+  margin-bottom:15px;
+}
+
+.lobbyError{
+  color:#ff6b6b;
+  margin-bottom:15px;
+}
+
+.lobbyControls{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+
+  margin-bottom:25px;
+}
+
+.controlBtn{
+  width:55px;
+  height:55px;
+
+  border:none;
+
+  border-radius:50%;
+
+  cursor:pointer;
+
+  background:#252525;
+  color:white;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.controlBtn.active{
+  background:#C08B5C;
+  color:black;
+}
+
+.joinMeetingBtn{
+  width:100%;
+
+  border:none;
+
+  padding:15px;
+
+  border-radius:14px;
+
+  cursor:pointer;
+
+  font-size:1rem;
+  font-weight:600;
+
+  background:linear-gradient(
+    135deg,
+    #C08B5C,
+    #D6A77A
+  );
+
+  color:black;
+}
+
+
+

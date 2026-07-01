@@ -256,3 +256,49 @@ grid-template-columns: 1fr;
 font-size: 2rem;
 }
 }
+
+
+.profileCard{
+  display:flex;
+  align-items:center;
+  gap:20px;
+
+  background:#161616;
+  border:1px solid #262626;
+
+  border-radius:20px;
+
+  padding:25px;
+
+  margin-bottom:30px;
+}
+
+.profileAvatar{
+  width:70px;
+  height:70px;
+
+  border-radius:50%;
+
+  background:linear-gradient(
+    135deg,
+    #C08B5C,
+    #D6A77A
+  );
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  color:black;
+  font-size:1.3rem;
+  font-weight:700;
+}
+
+.profileInfo h2{
+  color:white;
+  margin-bottom:5px;
+}
+
+.profileInfo p{
+  color:#9A9A9A;
+}

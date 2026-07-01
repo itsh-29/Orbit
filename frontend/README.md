@@ -1,70 +1,192 @@
-# Getting Started with Create React App
+    # ◎ Orbit
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern real-time collaboration platform built for seamless video meetings, communication, and team productivity.
 
-## Available Scripts
+Orbit provides secure video conferencing, instant meeting creation, meeting history tracking, and real-time communication powered by WebRTC and Socket.IO.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Authentication
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* User Registration
+* Secure Login
+* Protected Routes
+* JWT-based Authentication
 
-### `npm test`
+### Meetings
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Instant Meeting Creation
+* Join Existing Meetings
+* Unique Room IDs
+* Real-Time Video Communication
+* Audio Controls
+* Camera Controls
+* Screen Sharing
+* End Meeting Functionality
 
-### `npm run build`
+### Collaboration
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Real-Time Chat
+* Meeting History Tracking
+* Rejoin Previous Meetings
+* Multi-Participant Support
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### User Experience
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Modern Orbit Design System
+* Responsive UI
+* Premium Black & Bronze Theme
+* Mobile-Friendly Layout
+* Fast Navigation
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🛠 Tech Stack
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Frontend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* React.js
+* React Router
+* Material UI
+* Axios
+* Socket.IO Client
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Backend
 
-## Learn More
+* Node.js
+* Express.js
+* Socket.IO
+* MongoDB
+* Mongoose
+* JWT Authentication
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Real-Time Communication
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+* WebRTC
+* Socket.IO
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* Frontend: Vercel
+* Backend: Render
+* Database: MongoDB Atlas
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📂 Project Structure
+
+```text
+Orbit
+│
+├── frontend
+│   ├── src
+│   │   ├── pages
+│   │   ├── components
+│   │   ├── contexts
+│   │   ├── styles
+│   │   └── utils
+│
+├── backend
+│   ├── src
+│   │   ├── controllers
+│   │   ├── models
+│   │   ├── routes
+│   │   ├── middleware
+│   │   └── app.js
+│
+└── README.md
+```
+
+---
+
+## ⚡ Getting Started
+
+### Clone Repository
+
+```bash
+git clone https://github.com/itsh-29/Orbit.git
+cd Orbit
+```
+
+### Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+### Backend Setup
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+---
+
+## Environment Variables
+
+### Backend
+
+Create a `.env` file:
+
+```env
+PORT=8000
+
+MONGO_URI=YOUR_MONGODB_CONNECTION
+
+JWT_SECRET=YOUR_SECRET_KEY
+```
+
+---
+
+## Architecture
+
+```text
+Frontend (React + Vercel)
+            │
+            ▼
+Backend (Node + Express + Render)
+            │
+            ▼
+MongoDB Atlas
+            │
+            ▼
+Socket.IO + WebRTC
+```
+
+---
+
+## Upcoming Features
+
+* Meeting Lobby Screen
+* User Profiles
+* Meeting Invitations
+* Meeting Scheduling
+* Participant Management
+* File Sharing
+* AI Meeting Notes
+* Meeting Recordings
+* Dark/Light Themes
+
+---
+
+## Author
+
+Ishan Meduri
+
+B.Tech Information Technology
+Manipal Institute of Technology Bengaluru
+
+GitHub:
+https://github.com/itsh-29
+
+---
+
+## License
+
+This project is licensed under the MIT License.

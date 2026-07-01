@@ -49,7 +49,7 @@ return ( <div className="orbitLanding"> <nav className="orbitNavbar"> <div class
         <Link className="primaryBtn" to={`/${Math.random().toString(36).substring(2, 8)}`}>
           Start Meeting
         </Link>
-       
+  
         <Link className="secondaryBtn" to="/auth">
           Sign In
         </Link>
